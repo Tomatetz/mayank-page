@@ -1,34 +1,40 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { HomePageContext } from '../HomePageContext';
 import { WorksStyled } from './works.styled';
 import { useSetTab } from '../../../utils/hooks/useSetTab';
-import glassNodeImage from '../../../assets/images/glassnode.jpg';
-import accountingImage from '../../../assets/images/accounting.jpg';
-import nansengImage from '../../../assets/images/nansen.jpg';
 import { HomePageSectionTitle } from '../homePage.styled';
 import { WorkItem } from './WorkItem';
+import axios from 'axios';
 
 export const Works = () => {
   const { currentTab, setCurrentTab, currentTabRef } = useContext(HomePageContext);
   const ref = useRef();
   useSetTab({ ref, currentTab, setCurrentTab, tabTitle: 'works', currentTabRef });
 
+  const [works, setWorks] = useState([]);
+  const getWorks = () => {
+    axios.get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/works?populate=*`).then(({ data }) => {
+      if (data.data) {
+        console.log(data.data);
+        setWorks(data.data);
+      }
+    });
+  };
+  useEffect(() => {
+    getWorks();
+  }, []);
+
   return (
     <WorksStyled ref={ref} className="mt-4">
       <HomePageSectionTitle>Work</HomePageSectionTitle>
-      {WORKS.map((work) => (
-        <WorkItem {...work} />
+      {works.map(({ attributes: work }, i) => (
+        <WorkItem
+          key={i}
+          title={work.title}
+          subtitle={work.subtitle}
+          image={work.image.data.attributes.url}
+        />
       ))}
     </WorksStyled>
   );
 };
-
-const WORKS = [
-  { title: 'Making on-chain data simple', subtitle: 'Glassnode 2023', image: glassNodeImage },
-  {
-    title: 'Rethinking transactions review process',
-    subtitle: 'Accounting 2023',
-    image: accountingImage,
-  },
-  { title: 'Designing for lessnoise, more signal', subtitle: 'Nansen 2020', image: nansengImage },
-];

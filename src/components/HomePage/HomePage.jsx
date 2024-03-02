@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import {
+  About,
   ArticlesContainer,
   ChartContainer,
   Feedback,
@@ -19,10 +20,6 @@ import { Projects } from './Projects';
 export const HomePage = () => {
   const [currentTab, setCurrentTab] = useState('chart');
   const currentTabRef = useRef();
-  // const setCurrentTab = (newValue) => {
-  //   // currentTabRef.current = newValue;
-  //   setCurrentTabProccessed(newValue);
-  // };
 
   return (
     <Layout>
@@ -52,7 +49,7 @@ export const HomePage = () => {
         <ProjectsContainer>
           <Projects />
         </ProjectsContainer>
-        {/* <About>About</About> */}
+        <About>About</About>
       </HomePageContext.Provider>
     </Layout>
   );
