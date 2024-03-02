@@ -4,10 +4,10 @@ export const About = styled.div``;
 export const ProjectsContainer = styled.div``;
 export const WorksContainer = styled.div``;
 export const ArticlesContainer = styled.div``;
-export const Feedback = styled.div`
+export const FeedbackContainer = styled.div`
   grid-area: 1 / 3 / 999 / 4;
   height: calc(100vh - 70px);
-  padding: 0px;
+  padding: 0px 16px !important;
   position: sticky;
   top: 0px;
   scrollbar-width: none;
@@ -17,6 +17,18 @@ export const Feedback = styled.div`
     border-left-color: ${(props) => props.theme.border};
     border-left-width: 1px;
     border-left-style: solid;
+  }
+
+  @media (max-width: 1279.98px) and (min-width: 1024px) {
+    position: relative;
+    padding: 0px 5%;
+    height: auto;
+  }
+  @media (max-width: 1023.98px) {
+    position: relative;
+    height: auto;
+    overflow: auto;
+    grid-row: 4 / 5;
   }
 `;
 export const ChartContainer = styled.div`
@@ -76,7 +88,7 @@ export const Layout = styled.div`
       grid-row: 1 / 999;
     }
   }
-  @media (max-width: 1279.98px) @media (min-width: 1024px) {
+  @media (max-width: 1279.98px) and (min-width: 1024px) {
     grid-template-columns: clamp(330px, 23%, 480px) 1fr;
     ${StatsSection} {
       grid-row: 1 / 999;

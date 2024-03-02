@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import {
   ArticlesContainer,
   ChartContainer,
-  Feedback,
+  FeedbackContainer,
   Layout,
   ProjectsContainer,
   TabSelector,
@@ -16,6 +16,7 @@ import { Articles } from './Articles';
 import { Works } from './Works';
 import { Projects } from './Projects';
 import { About } from './About';
+import { Feedback } from './Feedback';
 
 export const HomePage = () => {
   const [currentTab, setCurrentTab] = useState('chart');
@@ -39,7 +40,9 @@ export const HomePage = () => {
         <ChartContainer>
           <Chart />
         </ChartContainer>
-        <Feedback>Feedback</Feedback>
+        <FeedbackContainer>
+          <Feedback />
+        </FeedbackContainer>
         <WorksContainer>
           <Works />
         </WorksContainer>
