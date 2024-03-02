@@ -18,6 +18,7 @@ export const WorkSubTitle = styled.div`
   color: ${(props) => props.theme.textSecondary};
 `;
 export const WorkPreviewImage = styled.div`
+  margin-top: 12px;
   img {
     width: 100%;
   }

@@ -4,6 +4,7 @@ export const ProjectsStyled = styled.div`
   scroll-margin-top: 80px;
 `;
 export const ProjectsGrid = styled.div`
+  margin-top: 24px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;

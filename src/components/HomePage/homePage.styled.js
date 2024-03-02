@@ -1,17 +1,9 @@
 import styled from 'styled-components';
 
-export const About = styled.div`
-  min-height: 500px;
-`;
-export const ProjectsContainer = styled.div`
-  min-height: 800px;
-`;
-export const WorksContainer = styled.div`
-  min-height: 500px;
-`;
-export const ArticlesContainer = styled.div`
-  min-height: 500px;
-`;
+export const About = styled.div``;
+export const ProjectsContainer = styled.div``;
+export const WorksContainer = styled.div``;
+export const ArticlesContainer = styled.div``;
 export const Feedback = styled.div`
   grid-area: 1 / 3 / 999 / 4;
   height: calc(100vh - 70px);
