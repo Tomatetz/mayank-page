@@ -1,49 +1,44 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { HomePageContext } from '../HomePageContext';
 import { ProjectsGrid, ProjectsStyled } from './projects.styled';
 import { useSetTab } from '../../../utils/hooks/useSetTab';
 import { HomePageSectionTitle } from '../homePage.styled';
 import img from '../../../assets/images/profile-picture.jpeg';
 import { ProjectItem } from './ProjectItem';
+import axios from 'axios';
 
 export const Projects = () => {
   const { currentTab, setCurrentTab, currentTabRef } = useContext(HomePageContext);
   const ref = useRef();
   useSetTab({ ref, currentTab, setCurrentTab, tabTitle: 'projects', currentTabRef });
 
+  const [projects, setProjects] = useState([]);
+  const getProjects = () => {
+    axios.get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/projects?populate=*`).then(({ data }) => {
+      if (data.data) {
+        console.log(data.data);
+        setProjects(data.data);
+      }
+    });
+  };
+  useEffect(() => {
+    getProjects();
+  }, []);
+
   return (
     <ProjectsStyled ref={ref} className="mt-4">
       <HomePageSectionTitle>Side projects</HomePageSectionTitle>
       <ProjectsGrid>
-        {PROJECTS.map((project) => (
+        {projects.map(({ attributes: project }, i) => (
           <ProjectItem
+            key={i}
             title={project.title}
             description={project.description}
-            image={project.image}
-            link="google.com"
+            image={project.image.data.attributes.url}
+            link={project.link}
           />
         ))}
       </ProjectsGrid>
     </ProjectsStyled>
   );
 };
-
-const PROJECTS = [
-  {
-    title: 'Web3 Design Patterns',
-    description: 'A curated library of well-executed design patterns from real Web3 products.',
-    image: img,
-  },
-  {
-    title: 'Web3 Landing pages',
-    description:
-      'Developers want Web3, a decentralized model of the internet, to become  mainstream. To achieve  that, designers need to make Web3 apps more  consistent and intuitive.',
-    image: img,
-  },
-  {
-    title: 'How to Design for Maximum Product Trust',
-    description:
-      'We make split-second decisions about whether to trust people; the same  is true about trusting digital products.',
-    image: img,
-  },
-];
