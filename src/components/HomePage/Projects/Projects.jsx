@@ -3,7 +3,6 @@ import { HomePageContext } from '../HomePageContext';
 import { ProjectsGrid, ProjectsStyled } from './projects.styled';
 import { useSetTab } from '../../../utils/hooks/useSetTab';
 import { HomePageSectionTitle } from '../homePage.styled';
-import img from '../../../assets/images/profile-picture.jpeg';
 import { ProjectItem } from './ProjectItem';
 import axios from 'axios';
 
@@ -16,7 +15,6 @@ export const Projects = () => {
   const getProjects = () => {
     axios.get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/projects?populate=*`).then(({ data }) => {
       if (data.data) {
-        console.log(data.data);
         setProjects(data.data);
       }
     });

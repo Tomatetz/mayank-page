@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import {
-  About,
   ArticlesContainer,
   ChartContainer,
   Feedback,
@@ -16,6 +15,7 @@ import { HomePageContext } from './HomePageContext';
 import { Articles } from './Articles';
 import { Works } from './Works';
 import { Projects } from './Projects';
+import { About } from './About';
 
 export const HomePage = () => {
   const [currentTab, setCurrentTab] = useState('chart');
@@ -49,7 +49,7 @@ export const HomePage = () => {
         <ProjectsContainer>
           <Projects />
         </ProjectsContainer>
-        <About>About</About>
+        <About />
       </HomePageContext.Provider>
     </Layout>
   );

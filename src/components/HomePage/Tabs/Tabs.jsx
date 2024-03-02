@@ -31,6 +31,7 @@ export const Tabs = () => {
         <Tab label="Works" sx={sx} {...a11yProps(1)} value="works" disableRipple />
         <Tab label="Articles" sx={sx} {...a11yProps(2)} value="articles" disableRipple />
         <Tab label="Projects" sx={sx} {...a11yProps(3)} value="projects" disableRipple />
+        <Tab label="About" sx={sx} {...a11yProps(4)} value="about" disableRipple />
       </MuiTabs>
     </TabsContainer>
   );

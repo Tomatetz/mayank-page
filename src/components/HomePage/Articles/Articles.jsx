@@ -3,7 +3,6 @@ import { HomePageContext } from '../HomePageContext';
 import { ArticlesStyled } from './articles.styled';
 import { useSetTab } from '../../../utils/hooks/useSetTab';
 import { HomePageSectionTitle } from '../homePage.styled';
-import img from '../../../assets/images/profile-picture.jpeg';
 import { ArticleItem } from './ArticleItem';
 import axios from 'axios';
 

@@ -8,6 +8,7 @@
     "@mui/material": "^5.15.11",
     "@mui/styled-engine-sc": "^6.0.0-alpha.17",
     "@phosphor-icons/react": "phosphor-icons/react",
+    "@strapi/blocks-react-renderer": "^1.0.0",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
     "phosphor-react": "^1.4.1",
