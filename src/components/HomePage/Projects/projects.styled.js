@@ -31,6 +31,11 @@ export const ProjectItemStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  &:hover {
+    ${ProjectItemTitle} {
+      text-decoration: underline;
+    }
+  }
 `;
 export const ImageWrapper = styled.div`
   padding: 33%;

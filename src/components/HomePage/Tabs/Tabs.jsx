@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { HomePageContext } from '../HomePageContext';
-import { Tabs as MuiTabs, Tab } from '@mui/material';
 import { TabsContainer } from './tabs.styled';
 
 const sx = {
@@ -19,7 +18,7 @@ export const Tabs = () => {
   const { currentTab, setCurrentTab, currentTabRef } = useContext(HomePageContext);
   return (
     <TabsContainer>
-      <MuiTabs
+      {/* <MuiTabs
         value={currentTab}
         onChange={(e, value) => {
           currentTabRef.current = value;
@@ -31,7 +30,7 @@ export const Tabs = () => {
         <Tab label="Works" sx={sx} {...a11yProps(1)} value="works" disableRipple />
         <Tab label="Articles" sx={sx} {...a11yProps(2)} value="articles" disableRipple />
         <Tab label="Projects" sx={sx} {...a11yProps(3)} value="projects" disableRipple />
-      </MuiTabs>
+      </MuiTabs> */}
     </TabsContainer>
   );
 };
