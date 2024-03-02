@@ -4,12 +4,6 @@ export const ArticlesStyled = styled.div`
   scroll-margin-top: 80px;
 `;
 
-export const ArticleItemStyled = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  margin-top: 24px;
-`;
 export const ArticleItemDescription = styled.div`
   flex: 1;
   display: flex;
@@ -41,4 +35,14 @@ export const ArticleItemImage = styled.img`
   border-radius: 8px;
 `;
 
-export const tmplt = styled.div``;
+export const ArticleItemStyled = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 24px;
+  &:hover {
+    ${ArticleItemTitle} {
+      text-decoration: underline;
+    }
+  }
+`;

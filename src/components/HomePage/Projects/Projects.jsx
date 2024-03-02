@@ -4,6 +4,7 @@ import { ProjectsGrid, ProjectsStyled } from './projects.styled';
 import { useSetTab } from '../../../utils/hooks/useSetTab';
 import { HomePageSectionTitle } from '../homePage.styled';
 import img from '../../../assets/images/profile-picture.jpeg';
+import { ProjectItem } from './ProjectItem';
 
 export const Projects = () => {
   const { currentTab, setCurrentTab, currentTabRef } = useContext(HomePageContext);
@@ -13,7 +14,16 @@ export const Projects = () => {
   return (
     <ProjectsStyled ref={ref} className="mt-4">
       <HomePageSectionTitle>Side projects</HomePageSectionTitle>
-      <ProjectsGrid></ProjectsGrid>
+      <ProjectsGrid>
+        {PROJECTS.map((project) => (
+          <ProjectItem
+            title={project.title}
+            description={project.description}
+            image={project.image}
+            link="google.com"
+          />
+        ))}
+      </ProjectsGrid>
     </ProjectsStyled>
   );
 };

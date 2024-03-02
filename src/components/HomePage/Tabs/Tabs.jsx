@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { HomePageContext } from '../HomePageContext';
-import { Grow, Tabs as MuiTabs, Tab } from '@mui/material';
+import { Tabs as MuiTabs, Tab } from '@mui/material';
 import { TabsContainer } from './tabs.styled';
 
 const sx = {

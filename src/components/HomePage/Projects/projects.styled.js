@@ -12,6 +12,21 @@ export const ProjectsGrid = styled.div`
     grid-template-columns: 1fr 1fr;
   }
 `;
+
+export const ProjectItemDescription = styled.div`
+  color: ${(props) => props.theme.textSecondary};
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+`;
+export const ProjectItemTitle = styled.div`
+  font-size: 16px;
+  font-weight: 600;
+  color: ${(props) => props.theme.text};
+`;
+
 export const ProjectItemStyled = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,8 +34,7 @@ export const ProjectItemStyled = styled.div`
 `;
 export const ImageWrapper = styled.div`
   padding: 33%;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 `;
-export const tmplt = styled.div``;

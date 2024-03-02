@@ -15,7 +15,6 @@ export const Works = () => {
   const getWorks = () => {
     axios.get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/works?populate=*`).then(({ data }) => {
       if (data.data) {
-        console.log(data.data);
         setWorks(data.data);
       }
     });
