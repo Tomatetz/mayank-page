@@ -19,7 +19,7 @@ export const ArticlesContainer = styled.div`
 `;
 export const FeedbackContainer = styled.div`
   grid-area: 1 / 3 / 999 / 4;
-  height: calc(100vh - 70px);
+  height: 100vh;
   padding: 0px 16px !important;
   position: sticky;
   top: 0px;
@@ -88,7 +88,7 @@ export const StatsSection = styled.div`
   margin: 0px;
   z-index: 1;
   scrollbar-width: none;
-  max-height: calc(100vh - 70px);
+  max-height: 100vh;
   height: 100%;
   overflow: scroll;
   position: sticky;

@@ -118,6 +118,10 @@ export const Tag = styled.div`
 
 export const ShowAllButton = styled.div`
   color: #6188ff;
+  cursor: pointer;
+  &:hover {
+    color: #abbef9;
+  }
 `;
 
 export const tmplt = styled.div``;
