@@ -7,7 +7,7 @@ export const WorksContainer = styled.div`
     overflow-x: scroll;
     padding-left: 0px !important;
     padding-right: 0px !important;
-    padding: 0px 16px;
+    padding: 0px 16px !important;
     max-width: 100vw;
   }
 `;
@@ -18,7 +18,6 @@ export const ArticlesContainer = styled.div`
   }
 `;
 export const FeedbackContainer = styled.div`
-  grid-area: 1 / 3 / 999 / 4;
   height: 100vh;
   padding: 0px 16px !important;
   position: sticky;
@@ -26,6 +25,9 @@ export const FeedbackContainer = styled.div`
   scrollbar-width: none;
   overflow: hidden;
 
+  @media (min-width: 1280px) {
+    grid-area: 1 / 3 / 999 / 4;
+  }
   @media (min-width: 768px) {
     border-left-color: ${(props) => props.theme.border};
     border-left-width: 1px;

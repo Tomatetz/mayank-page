@@ -5,8 +5,10 @@ export const FeedbackStyled = styled.div`
   height: 100%;
   overflow-y: scroll;
   background: var(--c-color-bg-100);
-  padding-bottom: 128px;
   scrollbar-width: none;
+  @media (min-width: 1280px) {
+    padding-bottom: 128px;
+  }
 `;
 export const FeedbackItemStyled = styled.div`
   display: flex;
