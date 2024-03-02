@@ -2,8 +2,21 @@ import styled from 'styled-components';
 
 export const About = styled.div``;
 export const ProjectsContainer = styled.div``;
-export const WorksContainer = styled.div``;
-export const ArticlesContainer = styled.div``;
+export const WorksContainer = styled.div`
+  @media (max-width: 1023.98px) {
+    overflow-x: scroll;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding: 0px 16px;
+    max-width: 100vw;
+  }
+`;
+export const ArticlesContainer = styled.div`
+  @media (max-width: 1023.98px) {
+    padding: 0px 16px;
+    max-width: 100vw;
+  }
+`;
 export const FeedbackContainer = styled.div`
   grid-area: 1 / 3 / 999 / 4;
   height: calc(100vh - 70px);
@@ -29,12 +42,23 @@ export const FeedbackContainer = styled.div`
     height: auto;
     overflow: auto;
     grid-row: 4 / 5;
+    padding: 0px 16px;
+    max-width: 100vw;
   }
 `;
 export const ChartContainer = styled.div`
   display: flex;
   flex-direction: column;
   // min-height: 400px;
+  @media (max-width: 1023.98px) {
+    padding: 0px 16px;
+    max-width: 100vw;
+    grid-row: 2 / 3;
+    min-height: 0px;
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+  }
 `;
 export const TabSelector = styled.div`
   overflow: hidden;
@@ -51,6 +75,12 @@ export const TabSelector = styled.div`
   min-height: initial !important;
   // padding-top: 0px !important;
   padding-bottom: 0px !important;
+
+  @media (max-width: 1023.98px) {
+    padding: 0px 16px;
+    max-width: 100vw;
+    grid-row: 1 / 2;
+  }
 `;
 export const StatsSection = styled.div`
   padding: 24px;
@@ -67,6 +97,14 @@ export const StatsSection = styled.div`
     border-right-color: ${(props) => props.theme.border};
     border-right-width: 1px;
     border-right-style: solid;
+  }
+
+  @media (max-width: 1023.98px) {
+    grid-row: 3 / 4;
+    max-height: unset;
+    position: relative;
+    padding: 0px 16px;
+    max-width: 100vw;
   }
 `;
 export const Layout = styled.div`
