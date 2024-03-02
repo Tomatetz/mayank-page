@@ -16,7 +16,7 @@ import {
   Tag,
   TagsContainer,
 } from './stats.styled';
-import profilePicture from '../../../assets/images/profile-picture.jpeg';
+import profilePicture from '../../../assets/images/profile-picture.jpg';
 import { Button, NavLink, StatItem } from '../../../utils';
 import { ChartPieSlice, Globe, LinkedinLogo, ShareNetwork, Star } from 'phosphor-react';
 
