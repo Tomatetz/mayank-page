@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Header } from './components/Header';
+import { AppStyled } from './app.styled';
+import { ThemeProvider } from 'styled-components';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { colors } from './utils';
+import { useState } from 'react';
+import { HomePage } from './components/HomePage/HomePage';
 
 function App() {
+  const [theme, setTheme] = useState('dark');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ThemeProvider theme={colors[theme]}>
+        <AppStyled>
+          <Header theme={theme} setTheme={setTheme} />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+          </Routes>
+        </AppStyled>
+      </ThemeProvider>
+    </Router>
   );
 }
 
