@@ -3,6 +3,7 @@ import { colors } from '../../../utils';
 
 export const StatsHeader = styled.div`
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   position: sticky;
   display: block;
   top: -24px;

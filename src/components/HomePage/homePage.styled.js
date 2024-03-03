@@ -65,6 +65,7 @@ export const ChartContainer = styled.div`
 export const TabSelector = styled.div`
   overflow: hidden;
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: ${(props) => props.theme.border};

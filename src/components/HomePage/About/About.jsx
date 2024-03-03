@@ -16,7 +16,6 @@ export const About = () => {
   const getData = () => {
     axios.get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/abouts`).then(({ data }) => {
       if (data.data) {
-        console.log(data.data);
         setAbouts(data.data);
       }
     });
@@ -30,7 +29,7 @@ export const About = () => {
       <HomePageSectionTitle>About Mayank</HomePageSectionTitle>
       <Accordion defaultActiveKey={['0']} alwaysOpen>
         {abouts.map(({ attributes }, i) => (
-          <Accordion.Item eventKey={i.toString()}>
+          <Accordion.Item key={i} eventKey={i.toString()}>
             <Accordion.Header>{attributes.title}</Accordion.Header>
             <Accordion.Body>
               {attributes.description && <BlocksRenderer content={attributes.description} />}
