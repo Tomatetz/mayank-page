@@ -25,6 +25,10 @@ export const Chart = () => {
 
 const data = [
   {
+    timestamp: 1376303200000,
+    amount: 0,
+  },
+  {
     company: 'Manyone',
     timestamp: 1396303200000,
     amount: 0.804,
