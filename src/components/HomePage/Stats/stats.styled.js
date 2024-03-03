@@ -28,8 +28,9 @@ export const StatsHeaderProfilePicture = styled.div`
 
 export const PictureWrapper = styled.div`
   width: 24px;
-  border-radius: 50%;
-  overflow: hidden;
+  > img {
+    border-radius: 50%;
+  }
 `;
 
 export const Name = styled.div`
