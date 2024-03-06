@@ -17,20 +17,28 @@ import { Projects } from './Projects';
 import { About } from './About';
 import { Feedback } from './Feedback';
 import { useChangeTab } from '../../utils/hooks/useChangeTab';
+import { Modal } from 'react-bootstrap';
+import { Form } from '../Form';
+import { Header } from '../Header';
 
 export const HomePage = () => {
   const [currentTab, setCurrentTab] = useState('chart');
   const { setRefCollection, showContext } = useChangeTab();
+
+  const [showContactForm, setShowContactForm] = useState(false);
+
   return (
-    <Layout>
-      <HomePageContext.Provider
-        value={{
-          currentTab,
-          setCurrentTab,
-          setRefCollection,
-          showContext,
-        }}
-      >
+    <HomePageContext.Provider
+      value={{
+        currentTab,
+        setCurrentTab,
+        setRefCollection,
+        showContext,
+        setShowContactForm,
+      }}
+    >
+      <Header />
+      <Layout>
         <Stats />
         <TabSelector>
           <div style={{ width: '100%' }}>
@@ -51,7 +59,16 @@ export const HomePage = () => {
           <Projects />
         </ProjectsContainer>
         <About />
-      </HomePageContext.Provider>
-    </Layout>
+
+        <Modal
+          show={showContactForm}
+          onHide={() => {
+            setShowContactForm(false);
+          }}
+        >
+          <Form closeModal={() => setShowContactForm(false)} />
+        </Modal>
+      </Layout>
+    </HomePageContext.Provider>
   );
 };

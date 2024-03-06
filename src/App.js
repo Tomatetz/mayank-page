@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Header } from './components/Header';
 import { AppStyled } from './app.styled';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -14,7 +13,7 @@ function App() {
     <Router>
       <ThemeProvider theme={colors[theme]}>
         <AppStyled>
-          <Header theme={theme} setTheme={setTheme} />
+          {/* <Header theme={theme} setTheme={setTheme} /> */}
           <Routes>
             <Route path="/" element={<HomePage />} />
           </Routes>

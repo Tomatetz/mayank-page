@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { StatsSection } from '../homePage.styled';
 import {
   Converter,
@@ -20,8 +20,10 @@ import {
 import profilePicture from '../../../assets/images/profile-picture.jpg';
 import { Button, NavLink, StatItem } from '../../../utils';
 import { ChartPieSlice, Globe, LinkedinLogo, ShareNetwork, Star } from 'phosphor-react';
+import { HomePageContext } from '../HomePageContext';
 
 export const Stats = () => {
+  const { setShowContactForm } = useContext(HomePageContext);
   const [mayanksCount, setMayankCount] = useState('1');
   const [designersCount, setDesignersCount] = useState('2');
   const [showAllTags, setShowAllTags] = useState(false);
@@ -35,10 +37,18 @@ export const Stats = () => {
             <img src={profilePicture} alt="" width="100%" />
           </PictureWrapper>
           <Name>Mayank Sharma</Name>
-          <Button>
+          <Button
+            onClick={() => {
+              setShowContactForm(true);
+            }}
+          >
             <Star size={16} weight="fill" color="#858ca2" />
           </Button>
-          <Button>
+          <Button
+            onClick={() => {
+              setShowContactForm(true);
+            }}
+          >
             <ShareNetwork size={16} color="#858ca2" />
           </Button>
         </StatsHeaderProfilePicture>
@@ -47,7 +57,12 @@ export const Stats = () => {
         A hands-on product designer and leader specialising in Web3 applications.
       </StatsHeaderTitle>
       <br />
-      <Button style={{ fontSize: '12px', width: '100%', color: '#a1a7bb' }}>
+      <Button
+        style={{ fontSize: '12px', width: '100%', color: '#a1a7bb' }}
+        onClick={() => {
+          setShowContactForm(true);
+        }}
+      >
         <ChartPieSlice size={15} /> Track in portfolio
       </Button>
       <br />

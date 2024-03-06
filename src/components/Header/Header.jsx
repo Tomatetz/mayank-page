@@ -1,12 +1,12 @@
-import React from 'react';
-import { HeaderStyled, LinksContainer, Logo, LogoWrapper, ThemeSwitcher } from './header.styled';
+import React, { useContext } from 'react';
+import { HeaderStyled, LinksContainer, Logo, LogoWrapper } from './header.styled';
 import logo from '../../assets/images/logo.png';
-import { NavLink } from '../../utils';
-import { ChartPieSlice, Moon, Star, Sun } from 'phosphor-react';
+import { Button } from '../../utils';
+import { ChartPieSlice, Star } from 'phosphor-react';
+import { HomePageContext } from '../HomePage/HomePageContext';
 
-// import { ReactComponent as LogoIcon } from '../../assets/svg/logo.svg';
-
-export const Header = ({ theme, setTheme }) => {
+export const Header = () => {
+  const { setShowContactForm } = useContext(HomePageContext);
   return (
     <HeaderStyled className="d-flex justify-content-between align-items-center">
       <LogoWrapper>
@@ -16,16 +16,24 @@ export const Header = ({ theme, setTheme }) => {
         {/* <ThemeSwitcher onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
           {theme === 'dark' ? <Sun size={20} weight="fill" /> : <Moon size={20} weight="fill" />}
         </ThemeSwitcher> */}
-        {/* @ts-ignore */}
-        <NavLink isButton to="/">
+        <Button
+          type="ghost"
+          onClick={() => {
+            setShowContactForm(true);
+          }}
+        >
           <Star size={15} weight="fill" style={{ color: '#646b80', marginRight: '4px' }} />{' '}
           Watchlist
-        </NavLink>
-        {/* @ts-ignore */}
-        <NavLink isButton to="/">
+        </Button>
+        <Button
+          type="ghost"
+          onClick={() => {
+            setShowContactForm(true);
+          }}
+        >
           <ChartPieSlice size={15} weight="fill" style={{ color: '#646b80', marginRight: '4px' }} />{' '}
           Portfolio
-        </NavLink>
+        </Button>
       </LinksContainer>
     </HeaderStyled>
   );

@@ -5,4 +5,5 @@ export const HomePageContext = React.createContext({
   setCurrentTab: (newTab) => {},
   setRefCollection: (ref) => {},
   showContext: (title) => {},
+  setShowContactForm: (show) => {},
 });

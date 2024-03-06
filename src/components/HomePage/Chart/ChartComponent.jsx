@@ -1,14 +1,11 @@
 import React from 'react';
 import moment from 'moment';
-
 import {
   Area,
   CartesianGrid,
   ComposedChart,
   Line,
   ResponsiveContainer,
-  Scatter,
-  ScatterChart,
   Tooltip,
   XAxis,
   YAxis,
@@ -68,6 +65,7 @@ export const LineChart = ({ data }) => (
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
+    // eslint-disable-next-line
     const [timeValue, amountValue] = payload;
     if (!timeValue.payload.logo) return null;
     const { company, title, period } = timeValue.payload;
