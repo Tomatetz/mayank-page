@@ -126,4 +126,13 @@ export const ShowAllButton = styled.div`
   }
 `;
 
-export const tmplt = styled.div``;
+export const SupplyRaw = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: ${(props) => props.theme.textSecondary};
+  > span {
+    color: ${(props) => props.theme.text};
+  }
+`;

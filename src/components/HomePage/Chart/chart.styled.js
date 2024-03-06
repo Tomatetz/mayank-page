@@ -18,8 +18,7 @@ export const ChartTooltipPeriod = styled.div`
 
 export const ChartTooltipRow = styled.div`
   display: flex;
-  line-height: 12px;
-  align-items: flex-end;
+  align-items: center;
   gap: 8px;
 `;
 

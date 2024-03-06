@@ -4,10 +4,12 @@ export const FeedbackStyled = styled.div`
   position: relative;
   height: 100%;
   overflow-y: scroll;
-  background: var(--c-color-bg-100);
   scrollbar-width: none;
   @media (min-width: 1280px) {
     padding-bottom: 128px;
+  }
+  @media (max-width: 1023.98px) {
+    scroll-margin-top: 180px;
   }
 `;
 export const FeedbackItemStyled = styled.div`

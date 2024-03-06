@@ -12,7 +12,7 @@ export const AboutsStyled = styled.div`
         padding: 12px 0;
         background: none;
         box-shadow: none;
-        font-family: Inter;
+        font-family: 'Inter';
         font-size: 16px;
         font-weight: 600;
         line-height: 24px;

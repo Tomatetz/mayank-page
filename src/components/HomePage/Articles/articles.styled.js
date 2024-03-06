@@ -29,10 +29,26 @@ export const ArticleItemFooter = styled.div`
   font-size: 12px;
 `;
 
+export const ArticleImageWrapper = styled.div`
+  flex-basis: 200px;
+  flex-shrink: 0;
+  position: relative;
+
+  @media (max-width: 1279.98px) {
+    flex-basis: 153px;
+  }
+  @media (max-width: 767.98px) {
+    flex-basis: 72px;
+  }
+`;
 export const ArticleItemImage = styled.img`
-  width: 184px;
-  height: 96px;
   border-radius: 8px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 export const ArticleItemStyled = styled.div`
@@ -52,4 +68,10 @@ export const SeeMoreButton = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 48px;
+`;
+
+export const ArticleItemDescriptionCopy = styled.div`
+  @media (max-width: 767.98px) {
+    display: none;
+  }
 `;

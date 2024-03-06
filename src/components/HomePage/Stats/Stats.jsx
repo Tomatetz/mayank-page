@@ -13,6 +13,7 @@ import {
   StatsHeaderProfilePicture,
   StatsHeaderTitle,
   SubTitle,
+  SupplyRaw,
   Tag,
   TagsContainer,
 } from './stats.styled';
@@ -22,7 +23,7 @@ import { ChartPieSlice, Globe, LinkedinLogo, ShareNetwork, Star } from 'phosphor
 
 export const Stats = () => {
   const [mayanksCount, setMayankCount] = useState('1');
-  const [designersCount, setDesignersCount] = useState('1000');
+  const [designersCount, setDesignersCount] = useState('2');
   const [showAllTags, setShowAllTags] = useState(false);
   const tags = ['Figma', 'Photoshop', 'Leadership', 'Sketch', 'Adobe Illustrator', 'Webflow'];
 
@@ -55,11 +56,19 @@ export const Stats = () => {
       <StatItem title="Photoshop" value={82} />
       <br />
       <StatItem title="Sketch" value={87} />
+      <br />
+      <SupplyRaw>
+        Total supply <span>1</span>
+      </SupplyRaw>
+      <br />
+      <SupplyRaw>
+        Max supply <span>1</span>
+      </SupplyRaw>
       <Links className="d-flex flex-column">
         <span>Official links</span>
         <div className="d-flex align-items-center" style={{ gap: '8px' }}>
           <Button style={{ fontSize: '12px', padding: '3px 8px' }}>
-            <Globe size={15} color="#a1a7bb" /> Website
+            <Globe size={15} color="#a1a7bb" /> White paper
           </Button>
           <NavLink to="https://www.linkedin.com/in/mayankdesign/" target="_blank">
             <Button style={{ fontSize: '12px', padding: '3px 8px' }}>
@@ -94,7 +103,7 @@ export const Stats = () => {
                 const proccessedValue = Number(e.target.value.replace(/[^0-9]/g, ''));
                 const limitedValue = proccessedValue < 1 ? 1 : proccessedValue;
                 setMayankCount(limitedValue.toString());
-                setDesignersCount((limitedValue * 1000).toString());
+                setDesignersCount((limitedValue * 2).toString());
               }}
             />
           </ConverterInnerSection>
@@ -107,7 +116,7 @@ export const Stats = () => {
               onChange={(e) => {
                 const proccessedValue = Number(e.target.value.replace(/[^0-9]/g, ''));
                 const limitedValue = proccessedValue < 1 ? 1 : proccessedValue;
-                const mayanksCount = Math.round(limitedValue / 1000);
+                const mayanksCount = Math.round(limitedValue / 2);
                 setMayankCount(mayanksCount < 1 ? '1' : mayanksCount.toString());
                 setDesignersCount(limitedValue.toString());
               }}

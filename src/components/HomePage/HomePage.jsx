@@ -17,11 +17,12 @@ import { Works } from './Works';
 import { Projects } from './Projects';
 import { About } from './About';
 import { Feedback } from './Feedback';
+import { useChangeTab } from '../../utils/hooks/useChangeTab';
 
 export const HomePage = () => {
   const [currentTab, setCurrentTab] = useState('chart');
   const currentTabRef = useRef();
-
+  const { setRefCollection } = useChangeTab();
   return (
     <Layout>
       <HomePageContext.Provider
@@ -29,6 +30,7 @@ export const HomePage = () => {
           currentTab,
           setCurrentTab,
           currentTabRef: currentTabRef,
+          setRefCollection,
         }}
       >
         <Stats />

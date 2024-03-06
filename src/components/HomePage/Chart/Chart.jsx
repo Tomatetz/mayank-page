@@ -17,7 +17,6 @@ export const Chart = () => {
   useSetTab({ ref, currentTab, setCurrentTab, tabTitle: 'chart', currentTabRef });
   return (
     <ChartStyled ref={ref} className="mt-4">
-      {/* <ChartStub style={{ backgroundImage: `url(${chartImage})`, padding: '33%' }} /> */}
       <LineChart data={data} />
     </ChartStyled>
   );

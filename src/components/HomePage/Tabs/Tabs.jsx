@@ -1,22 +1,32 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { HomePageContext } from '../HomePageContext';
 import { Tabs as MuiTabs, Tab } from '@mui/material';
 import { TabsContainer } from './tabs.styled';
 
 const sx = {
   color: '#fff',
-  padding: '0 8px 0 8px',
+  padding: '0 16px',
   textTransform: 'capitalize',
   minWidth: 'unset',
+  fontWeight: '500!important',
+  fontFamily: 'Inter',
 };
-function a11yProps(index) {
-  return {
-    id: `tab-${index}`,
-    'aria-controls': `tabpanel-${index}`,
-  };
-}
+
 export const Tabs = () => {
   const { currentTab, setCurrentTab, currentTabRef } = useContext(HomePageContext);
+
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <TabsContainer>
       <MuiTabs
@@ -27,11 +37,12 @@ export const Tabs = () => {
         }}
         sx={{ minHeight: 'unset', height: '40px' }}
       >
-        <Tab label="Chart" sx={sx} {...a11yProps(0)} value="chart" disableRipple />
-        <Tab label="Works" sx={sx} {...a11yProps(1)} value="works" disableRipple />
-        <Tab label="Articles" sx={sx} {...a11yProps(2)} value="articles" disableRipple />
-        <Tab label="Projects" sx={sx} {...a11yProps(3)} value="projects" disableRipple />
-        <Tab label="About" sx={sx} {...a11yProps(4)} value="about" disableRipple />
+        <Tab label="Chart" sx={sx} value="chart" disableRipple />
+        <Tab label="Works" sx={sx} value="works" disableRipple />
+        <Tab label="Articles" sx={sx} value="articles" disableRipple />
+        <Tab label="Projects" sx={sx} value="projects" disableRipple />
+        {width < 1024 && <Tab label="Reviews" sx={sx} value="reviews" disableRipple style={{}} />}
+        <Tab label="About" sx={sx} value="about" disableRipple />
       </MuiTabs>
     </TabsContainer>
   );

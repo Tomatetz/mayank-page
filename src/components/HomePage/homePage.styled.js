@@ -43,7 +43,7 @@ export const FeedbackContainer = styled.div`
     position: relative;
     height: auto;
     overflow: auto;
-    grid-row: 4 / 5;
+    grid-row: 7/8;
     padding: 0px 16px;
     max-width: 100vw;
   }
@@ -55,7 +55,7 @@ export const ChartContainer = styled.div`
   @media (max-width: 1023.98px) {
     padding: 0px 16px;
     max-width: 100vw;
-    grid-row: 2 / 3;
+    grid-row: 3 / 4;
     min-height: 0px;
     display: flex;
     flex-direction: column;
@@ -103,7 +103,7 @@ export const StatsSection = styled.div`
   }
 
   @media (max-width: 1023.98px) {
-    grid-row: 3 / 4;
+    grid-row: 2 / 3;
     max-height: unset;
     position: relative;
     padding: 0px 16px;
@@ -140,7 +140,7 @@ export const Layout = styled.div`
     max-height: unset;
     overflow: unset;
     ${StatsSection} {
-      grid-row: 3 / 4;
+      grid-row: 2 / 3;
       max-height: unset;
       position: relative;
     }

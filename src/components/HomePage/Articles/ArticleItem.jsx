@@ -1,6 +1,8 @@
 import React from 'react';
 import {
+  ArticleImageWrapper,
   ArticleItemDescription,
+  ArticleItemDescriptionCopy,
   ArticleItemFooter,
   ArticleItemImage,
   ArticleItemStyled,
@@ -14,12 +16,14 @@ export const ArticleItem = ({ title, description, image, minRead, date, link }) 
       <ArticleItemStyled>
         <ArticleItemDescription>
           <ArticleItemTitle>{title}</ArticleItemTitle>
-          <div>{description}</div>
+          <ArticleItemDescriptionCopy>{description}</ArticleItemDescriptionCopy>
           <ArticleItemFooter>
             <div>{minRead} min read</div> · <div>{date}</div>
           </ArticleItemFooter>
         </ArticleItemDescription>
-        <ArticleItemImage src={image} alt="" />
+        <ArticleImageWrapper>
+          <ArticleItemImage src={image} alt="" />
+        </ArticleImageWrapper>
       </ArticleItemStyled>
     </NavLink>
   );
