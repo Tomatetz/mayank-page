@@ -1,15 +1,14 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { HomePageContext } from '../HomePageContext';
 import { ProjectsGrid, ProjectsStyled } from './projects.styled';
-import { useSetTab } from '../../../utils/hooks/useSetTab';
 import { HomePageSectionTitle } from '../homePage.styled';
 import { ProjectItem } from './ProjectItem';
 import axios from 'axios';
+import { useOnScreen } from '../../../utils/hooks/useInViewport';
 
 export const Projects = () => {
-  const { currentTab, setCurrentTab, currentTabRef } = useContext(HomePageContext);
+  const { setCurrentTab, setRefCollection } = useContext(HomePageContext);
   const ref = useRef();
-  useSetTab({ ref, currentTab, setCurrentTab, tabTitle: 'projects', currentTabRef });
 
   const [projects, setProjects] = useState([]);
   const getProjects = () => {
@@ -23,6 +22,15 @@ export const Projects = () => {
     getProjects();
   }, []);
 
+  useEffect(() => {
+    if (ref.current) {
+      setRefCollection((prev) => [...prev, { title: 'projects', ref: ref.current }]);
+    }
+  }, [ref, setRefCollection]);
+  const { isInView } = useOnScreen(ref);
+  useEffect(() => {
+    if (isInView) setCurrentTab('projects');
+  }, [isInView, setCurrentTab]);
   return (
     <ProjectsStyled ref={ref} className="mt-4">
       <HomePageSectionTitle>Side projects</HomePageSectionTitle>

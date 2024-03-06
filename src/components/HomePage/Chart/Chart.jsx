@@ -1,6 +1,5 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { ChartStyled } from './chart.styled';
-import { useSetTab } from '../../../utils/hooks/useSetTab';
 import { HomePageContext } from '../HomePageContext';
 import { LineChart } from './ChartComponent';
 import manyoneLogo from '../../../assets/images/manyone_logo.png';
@@ -10,11 +9,20 @@ import upvestLogo from '../../../assets/images/upvest_logo.png';
 import bitwalaLogo from '../../../assets/images/bw_logo.png';
 import nansenLogo from '../../../assets/images/nansen_logo.png';
 import glassnodeLogo from '../../../assets/images/glassnode_logo.png';
+import { useOnScreen } from '../../../utils/hooks/useInViewport';
 
 export const Chart = () => {
-  const { currentTab, setCurrentTab, currentTabRef } = useContext(HomePageContext);
+  const { setCurrentTab, setRefCollection } = useContext(HomePageContext);
   const ref = useRef();
-  useSetTab({ ref, currentTab, setCurrentTab, tabTitle: 'chart', currentTabRef });
+  useEffect(() => {
+    if (ref.current) {
+      setRefCollection((prev) => [...prev, { title: 'chart', ref: ref.current }]);
+    }
+  }, [ref, setRefCollection]);
+  const { isInView } = useOnScreen(ref);
+  useEffect(() => {
+    if (isInView) setCurrentTab('chart');
+  }, [isInView, setCurrentTab]);
   return (
     <ChartStyled ref={ref} className="mt-4">
       <LineChart data={data} />

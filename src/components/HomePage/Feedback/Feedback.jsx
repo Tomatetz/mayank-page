@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { FeedbackItem } from './FeedbackItem';
 import axios from 'axios';
-import { FeedbackStyled } from './feedback.styled';
-import { useSetTab } from '../../../utils/hooks/useSetTab';
+import { FeedbackContainer, FeedbackStyled } from './feedback.styled';
 import { HomePageContext } from '../HomePageContext';
+import { useOnScreen } from '../../../utils/hooks/useInViewport';
+import { HomePageSectionTitle } from '../homePage.styled';
 
 export const Feedback = () => {
   const [feedback, setFeedback] = useState([]);
@@ -32,26 +33,34 @@ export const Feedback = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  const { currentTab, setCurrentTab, currentTabRef } = useContext(HomePageContext);
+  const { setCurrentTab, setRefCollection } = useContext(HomePageContext);
   const ref = useRef();
-  useSetTab({
-    ref,
-    currentTab,
-    setCurrentTab,
-    tabTitle: width < 1024 ? 'reviews' : 'fake',
-    currentTabRef,
-  });
 
+  useEffect(() => {
+    if (ref.current) {
+      setRefCollection((prev) => [
+        ...prev,
+        { title: width < 1024 ? 'reviews' : 'fake', ref: ref.current },
+      ]);
+    }
+  }, [ref, width, setRefCollection]);
+  const { isInView } = useOnScreen(ref);
+  useEffect(() => {
+    if (isInView && width < 1024) setCurrentTab('reviews');
+  }, [isInView, width, setCurrentTab]);
   return (
-    <FeedbackStyled className="mt-4" ref={ref}>
-      {feedback.map(({ attributes: feedback }, i) => (
-        <FeedbackItem
-          key={i}
-          name={feedback.name}
-          feedback={feedback.feedback}
-          image={feedback.image.data.attributes.url}
-        />
-      ))}
-    </FeedbackStyled>
+    <FeedbackContainer ref={ref}>
+      <FeedbackStyled className="mt-4">
+        {width < 1024 && <HomePageSectionTitle>Reviews</HomePageSectionTitle>}
+        {feedback.map(({ attributes: feedback }, i) => (
+          <FeedbackItem
+            key={i}
+            name={feedback.name}
+            feedback={feedback.feedback}
+            image={feedback.image.data.attributes.url}
+          />
+        ))}
+      </FeedbackStyled>
+    </FeedbackContainer>
   );
 };

@@ -13,7 +13,7 @@ const sx = {
 };
 
 export const Tabs = () => {
-  const { currentTab, setCurrentTab, currentTabRef } = useContext(HomePageContext);
+  const { currentTab, setCurrentTab, showContext } = useContext(HomePageContext);
 
   const [width, setWidth] = useState(window.innerWidth);
   useEffect(() => {
@@ -32,8 +32,8 @@ export const Tabs = () => {
       <MuiTabs
         value={currentTab}
         onChange={(e, value) => {
-          currentTabRef.current = value;
           setCurrentTab(value);
+          showContext(value);
         }}
         sx={{ minHeight: 'unset', height: '40px' }}
       >
@@ -41,7 +41,7 @@ export const Tabs = () => {
         <Tab label="Works" sx={sx} value="works" disableRipple />
         <Tab label="Articles" sx={sx} value="articles" disableRipple />
         <Tab label="Projects" sx={sx} value="projects" disableRipple />
-        {width < 1024 && <Tab label="Reviews" sx={sx} value="reviews" disableRipple style={{}} />}
+        {width < 1024 && <Tab label="Reviews" sx={sx} value="reviews" disableRipple />}
         <Tab label="About" sx={sx} value="about" disableRipple />
       </MuiTabs>
     </TabsContainer>

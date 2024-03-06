@@ -1,15 +1,14 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { HomePageContext } from '../HomePageContext';
 import { WorksStyled } from './works.styled';
-import { useSetTab } from '../../../utils/hooks/useSetTab';
 import { HomePageSectionTitle } from '../homePage.styled';
 import { WorkItem } from './WorkItem';
 import axios from 'axios';
+import { useOnScreen } from '../../../utils/hooks/useInViewport';
 
 export const Works = () => {
-  const { currentTab, setCurrentTab, currentTabRef } = useContext(HomePageContext);
+  const { setCurrentTab, setRefCollection } = useContext(HomePageContext);
   const ref = useRef();
-  useSetTab({ ref, currentTab, setCurrentTab, tabTitle: 'works', currentTabRef });
 
   const [works, setWorks] = useState([]);
   const getWorks = () => {
@@ -22,6 +21,16 @@ export const Works = () => {
   useEffect(() => {
     getWorks();
   }, []);
+
+  useEffect(() => {
+    if (ref.current) {
+      setRefCollection((prev) => [...prev, { title: 'works', ref: ref.current }]);
+    }
+  }, [ref, setRefCollection]);
+  const { isInView } = useOnScreen(ref);
+  useEffect(() => {
+    if (isInView) setCurrentTab('works');
+  }, [isInView, setCurrentTab]);
 
   return (
     <WorksStyled ref={ref} className="mt-4">

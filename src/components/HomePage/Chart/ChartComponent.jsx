@@ -1,15 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
-import img from '../../../assets/images/profile-picture.jpg';
-import svgEl from '../../../assets/images/glassnode_logo.png';
 
 import {
-  Area,
   CartesianGrid,
-  Dot,
-  Legend,
-  Line,
   ResponsiveContainer,
   Scatter,
   ScatterChart,
@@ -67,7 +60,7 @@ const CustomTooltip = ({ active, payload }) => {
     return (
       <ChartTooltip>
         <ChartTooltipRow>
-          <img src={timeValue.payload.logo} width="24px" />
+          <img src={timeValue.payload.logo} width="24px" alt="" />
           <b>{company}</b>
         </ChartTooltipRow>
         <ChartTooltipRow className="mt-2">{title}</ChartTooltipRow>
@@ -92,7 +85,7 @@ const RenderDot = (data) => {
         height={30}
         width={30}
         href={logo}
-        clip-path="inset(0% round 15px)"
+        clipPath="inset(0% round 15px)"
       />
     </g>
   );

@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { HomePageContext } from '../HomePageContext';
 import { ArticlesStyled, SeeMoreButton } from './articles.styled';
-import { useSetTab } from '../../../utils/hooks/useSetTab';
 import { HomePageSectionTitle } from '../homePage.styled';
 import { ArticleItem } from './ArticleItem';
 import axios from 'axios';
 import { Button } from '../../../utils';
+import { useOnScreen } from '../../../utils/hooks/useInViewport';
 
 export const Articles = () => {
-  const { currentTab, setCurrentTab, currentTabRef } = useContext(HomePageContext);
+  const { setCurrentTab, setRefCollection } = useContext(HomePageContext);
   const ref = useRef();
-  useSetTab({ ref, currentTab, setCurrentTab, tabTitle: 'articles', currentTabRef });
 
   const [showAll, setShowAll] = useState(false);
 
@@ -25,6 +24,16 @@ export const Articles = () => {
   useEffect(() => {
     getArticles();
   }, []);
+
+  useEffect(() => {
+    if (ref.current) {
+      setRefCollection((prev) => [...prev, { title: 'articles', ref: ref.current }]);
+    }
+  }, [ref, setRefCollection]);
+  const { isInView } = useOnScreen(ref);
+  useEffect(() => {
+    if (isInView) setCurrentTab('articles');
+  }, [isInView, setCurrentTab]);
 
   return (
     <ArticlesStyled ref={ref} className="mt-4">

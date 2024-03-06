@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { HomePageContext } from '../HomePageContext';
 import { AboutsStyled } from './about.styled';
-import { useSetTab } from '../../../utils/hooks/useSetTab';
 import { HomePageSectionTitle } from '../homePage.styled';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import axios from 'axios';
 import { Accordion } from 'react-bootstrap';
+import { useOnScreen } from '../../../utils/hooks/useInViewport';
 
 export const About = () => {
-  const { currentTab, setCurrentTab, currentTabRef } = useContext(HomePageContext);
+  const { setCurrentTab, setRefCollection } = useContext(HomePageContext);
   const ref = useRef();
-  useSetTab({ ref, currentTab, setCurrentTab, tabTitle: 'about', currentTabRef });
 
   const [abouts, setAbouts] = useState([]);
   const getData = () => {
@@ -24,6 +23,15 @@ export const About = () => {
     getData();
   }, []);
 
+  useEffect(() => {
+    if (ref.current) {
+      setRefCollection((prev) => [...prev, { title: 'about', ref: ref.current }]);
+    }
+  }, [ref, setRefCollection]);
+  const { isInView } = useOnScreen(ref);
+  useEffect(() => {
+    if (isInView) setCurrentTab('about');
+  }, [isInView, setCurrentTab]);
   return (
     <AboutsStyled ref={ref} className="mt-4">
       <HomePageSectionTitle>About Mayank</HomePageSectionTitle>

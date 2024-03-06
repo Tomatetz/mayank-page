@@ -17,37 +17,6 @@ export const ArticlesContainer = styled.div`
     max-width: 100vw;
   }
 `;
-export const FeedbackContainer = styled.div`
-  height: 100vh;
-  padding: 0px 16px !important;
-  position: sticky;
-  top: 0px;
-  scrollbar-width: none;
-  overflow: hidden;
-
-  @media (min-width: 1280px) {
-    grid-area: 1 / 3 / 999 / 4;
-  }
-  @media (min-width: 768px) {
-    border-left-color: ${(props) => props.theme.border};
-    border-left-width: 1px;
-    border-left-style: solid;
-  }
-
-  @media (max-width: 1279.98px) and (min-width: 1024px) {
-    position: relative;
-    padding: 0px 5%;
-    height: auto;
-  }
-  @media (max-width: 1023.98px) {
-    position: relative;
-    height: auto;
-    overflow: auto;
-    grid-row: 7/8;
-    padding: 0px 16px;
-    max-width: 100vw;
-  }
-`;
 export const ChartContainer = styled.div`
   display: flex;
   flex-direction: column;

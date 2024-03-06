@@ -1,8 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
   ArticlesContainer,
   ChartContainer,
-  FeedbackContainer,
   Layout,
   ProjectsContainer,
   TabSelector,
@@ -21,16 +20,15 @@ import { useChangeTab } from '../../utils/hooks/useChangeTab';
 
 export const HomePage = () => {
   const [currentTab, setCurrentTab] = useState('chart');
-  const currentTabRef = useRef();
-  const { setRefCollection } = useChangeTab();
+  const { setRefCollection, showContext } = useChangeTab();
   return (
     <Layout>
       <HomePageContext.Provider
         value={{
           currentTab,
           setCurrentTab,
-          currentTabRef: currentTabRef,
           setRefCollection,
+          showContext,
         }}
       >
         <Stats />
@@ -42,9 +40,7 @@ export const HomePage = () => {
         <ChartContainer>
           <Chart />
         </ChartContainer>
-        <FeedbackContainer>
-          <Feedback />
-        </FeedbackContainer>
+        <Feedback />
         <WorksContainer>
           <Works />
         </WorksContainer>
