@@ -78,6 +78,10 @@ export const StatsSection = styled.div`
     padding: 0px 16px;
     max-width: 100vw;
   }
+
+  @media (min-width: 1024px) {
+    padding-bottom: 100px !important;
+  }
 `;
 export const Layout = styled.div`
   box-sizing: border-box;
