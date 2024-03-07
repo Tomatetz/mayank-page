@@ -38,16 +38,6 @@ export const LineChart = ({ data }) => (
         tickFormatter={() => ''}
         hide
       />
-      <Line
-        type="monotone"
-        strokeLinecap="round"
-        strokeWidth={2}
-        dataKey="amount"
-        stroke="#19c785"
-        dot={(data) => <RenderDot data={data} key={data.cx} />}
-        legendType="none"
-        activeDot={false}
-      />
       <Area
         type="monotone"
         dataKey="amount"
@@ -55,6 +45,16 @@ export const LineChart = ({ data }) => (
         strokeWidth={2}
         fillOpacity={1}
         fill="url(#colorUv)"
+        legendType="none"
+        activeDot={false}
+      />
+      <Line
+        type="monotone"
+        strokeLinecap="round"
+        strokeWidth={2}
+        dataKey="amount"
+        stroke="#19c785"
+        dot={(data) => <RenderDot data={data} key={data.cx} />}
         legendType="none"
         activeDot={false}
       />
