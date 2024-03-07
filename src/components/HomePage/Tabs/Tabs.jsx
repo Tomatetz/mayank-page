@@ -30,6 +30,7 @@ export const Tabs = () => {
   return (
     <TabsContainer>
       <MuiTabs
+        variant="scrollable"
         value={currentTab}
         onChange={(e, value) => {
           setCurrentTab(value);
