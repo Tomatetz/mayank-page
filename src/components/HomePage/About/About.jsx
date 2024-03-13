@@ -13,11 +13,13 @@ export const About = () => {
 
   const [abouts, setAbouts] = useState([]);
   const getData = () => {
-    axios.get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/abouts`).then(({ data }) => {
-      if (data.data) {
-        setAbouts(data.data);
-      }
-    });
+    axios
+      .get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/abouts?sort=createdAt:DESC`)
+      .then(({ data }) => {
+        if (data.data) {
+          setAbouts(data.data);
+        }
+      });
   };
   useEffect(() => {
     getData();

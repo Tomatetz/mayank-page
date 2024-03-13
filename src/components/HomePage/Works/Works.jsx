@@ -12,11 +12,13 @@ export const Works = () => {
 
   const [works, setWorks] = useState([]);
   const getWorks = () => {
-    axios.get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/works?populate=*`).then(({ data }) => {
-      if (data.data) {
-        setWorks(data.data);
-      }
-    });
+    axios
+      .get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/works?populate=*&sort=createdAt:DESC`)
+      .then(({ data }) => {
+        if (data.data) {
+          setWorks(data.data);
+        }
+      });
   };
   useEffect(() => {
     getWorks();

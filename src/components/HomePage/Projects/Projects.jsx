@@ -12,11 +12,13 @@ export const Projects = () => {
 
   const [projects, setProjects] = useState([]);
   const getProjects = () => {
-    axios.get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/projects?populate=*`).then(({ data }) => {
-      if (data.data) {
-        setProjects(data.data);
-      }
-    });
+    axios
+      .get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/projects?populate=*&sort=createdAt:DESC`)
+      .then(({ data }) => {
+        if (data.data) {
+          setProjects(data.data);
+        }
+      });
   };
   useEffect(() => {
     getProjects();

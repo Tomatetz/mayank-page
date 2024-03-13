@@ -15,11 +15,13 @@ export const Articles = () => {
 
   const [articles, setArticles] = useState([]);
   const getArticles = () => {
-    axios.get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/articles?populate=*`).then(({ data }) => {
-      if (data.data) {
-        setArticles(data.data);
-      }
-    });
+    axios
+      .get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/articles?populate=*&sort=createdAt:DESC`)
+      .then(({ data }) => {
+        if (data.data) {
+          setArticles(data.data);
+        }
+      });
   };
   useEffect(() => {
     getArticles();

@@ -10,7 +10,7 @@ export const Feedback = () => {
   const [feedback, setFeedback] = useState([]);
   const getFeedback = () => {
     axios
-      .get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/feedbacks?populate=*`)
+      .get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/feedbacks?populate=*&sort=createdAt:DESC`)
       .then(({ data }) => {
         if (data.data) {
           setFeedback(data.data);
