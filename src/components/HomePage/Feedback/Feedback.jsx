@@ -57,7 +57,7 @@ export const Feedback = () => {
             key={i}
             name={feedback.name}
             feedback={feedback.feedback}
-            image={feedback.image.data.attributes.url}
+            image={feedback.image.data?.attributes.url}
           />
         ))}
       </FeedbackStyled>

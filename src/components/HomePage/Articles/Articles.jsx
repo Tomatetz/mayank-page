@@ -48,7 +48,7 @@ export const Articles = () => {
           date={article.date}
           link={article.link}
           minRead={article.minRead}
-          image={article.image.data.attributes.url}
+          image={article.image.data?.attributes.url}
         />
       ))}
       {articles.length > 4 && !showAll && (

@@ -42,7 +42,7 @@ export const Works = () => {
           key={i}
           title={work.title}
           subtitle={work.subtitle}
-          image={work.image.data.attributes.url}
+          image={work.image.data?.attributes.url}
         />
       ))}
     </WorksStyled>
