@@ -94,7 +94,7 @@ const data = [
   {
     company: 'Nansen',
     timestamp: 1585944400000,
-    amount: 24.926,
+    amount: 21.926,
     logo: nansenLogo,
     title: 'Design Lead & Manager',
     period: 'Nov 2020 - Oct 2022',
@@ -104,7 +104,7 @@ const data = [
   {
     company: 'Bitwala',
     timestamp: 1612134000000,
-    amount: 21.357,
+    amount: 24.357,
     logo: bitwalaLogo,
     title: 'Lead Product Designer',
     period: 'Feb 2021 - Oct 2021',
