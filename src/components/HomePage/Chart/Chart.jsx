@@ -99,7 +99,7 @@ const data = [
     title: 'Design Lead & Manager',
     period: 'Nov 2020 - Oct 2022',
   },
-  { timestamp: 1595944400000, amount: 18.6 },
+  { timestamp: 1595944400000, amount: 21.6 },
   { timestamp: 1604185200000, amount: 22.6 },
   {
     company: 'Bitwala',
