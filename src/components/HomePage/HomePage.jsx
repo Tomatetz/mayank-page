@@ -49,10 +49,10 @@ export const HomePage = () => {
           <Chart />
         </ChartContainer>
         <Feedback />
-        {/* <WorksContainer>
+        <WorksContainer>
           <Works />
         </WorksContainer>
-        <ArticlesContainer>
+        {/* <ArticlesContainer>
           <Articles />
         </ArticlesContainer> */}
         <ProjectsContainer>
