@@ -14,7 +14,7 @@ export const About = () => {
   const [abouts, setAbouts] = useState([]);
   const getData = () => {
     axios
-      .get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/abouts?sort=createdAt:DESC`)
+      .get(`${process.env.REACT_APP_MY_HEROKU_URL}/api/abouts?sort=createdAt:ASC`)
       .then(({ data }) => {
         if (data.data) {
           setAbouts(data.data);
@@ -36,7 +36,7 @@ export const About = () => {
   }, [isInView, setCurrentTab]);
   return (
     <AboutsStyled ref={ref} className="mt-4">
-      <HomePageSectionTitle>About Mayank</HomePageSectionTitle>
+      <HomePageSectionTitle>About Aleksei</HomePageSectionTitle>
       <Accordion defaultActiveKey={['0']} alwaysOpen>
         {abouts.map(({ attributes }, i) => (
           <Accordion.Item key={i} eventKey={i.toString()}>

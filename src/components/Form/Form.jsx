@@ -22,7 +22,7 @@ export const Form = ({ closeModal }) => {
   };
   return (
     <FormStyled onSubmit={handleSubmitForm}>
-      <FormHeader>Contact Mayank</FormHeader>
+      <FormHeader>Contact Aleksei</FormHeader>
       <div className="mb-5">Let's talk!</div>
       <BootstrapForm.Group className="mb-4" controlId="name">
         <Label>Name*</Label>

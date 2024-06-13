@@ -24,10 +24,10 @@ import { HomePageContext } from '../HomePageContext';
 
 export const Stats = () => {
   const { setShowContactForm } = useContext(HomePageContext);
-  const [mayanksCount, setMayankCount] = useState('1');
+  const [alekseiCount, setAlekseiCount] = useState('1');
   const [designersCount, setDesignersCount] = useState('2');
   const [showAllTags, setShowAllTags] = useState(false);
-  const tags = ['Figma', 'Photoshop', 'Leadership', 'Sketch', 'Adobe Illustrator', 'Webflow'];
+  const tags = ['React', 'NextJS', 'TypeScript', 'D3', 'GraphQL', 'Web3'];
 
   return (
     <StatsSection>
@@ -36,7 +36,7 @@ export const Stats = () => {
           <PictureWrapper>
             <img src={profilePicture} alt="" width="100%" />
           </PictureWrapper>
-          <Name>Mayank Sharma</Name>
+          <Name>Aleksei Ganikhin</Name>
           <Button
             onClick={() => {
               setShowContactForm(true);
@@ -54,7 +54,7 @@ export const Stats = () => {
         </StatsHeaderProfilePicture>
       </StatsHeader>
       <StatsHeaderTitle>
-        A hands-on product designer and leader specialising in Web3 applications.
+        A hands-on Frontend developer and leader specialising in Web3 applications.
       </StatsHeaderTitle>
       <br />
       <Button
@@ -66,11 +66,13 @@ export const Stats = () => {
         <ChartPieSlice size={15} /> Track in portfolio
       </Button>
       <br />
-      <StatItem title="Figma" value={91} />
+      <StatItem title="JavaScript" value={91} />
       <br />
-      <StatItem title="Photoshop" value={82} />
+      <StatItem title="TypeScript" value={82} />
       <br />
-      <StatItem title="Sketch" value={87} />
+      <StatItem title="React" value={87} />
+      <br />
+      <StatItem title="NextJS" value={89} />
       <br />
       <SupplyRaw>
         Total supply <span>1</span>
@@ -85,7 +87,7 @@ export const Stats = () => {
           <Button style={{ fontSize: '12px', padding: '3px 8px' }}>
             <Globe size={15} color="#a1a7bb" /> White paper
           </Button>
-          <NavLink to="https://www.linkedin.com/in/mayankdesign/" target="_blank">
+          <NavLink to="https://www.linkedin.com/in/aleksei-ganikhin/" target="_blank">
             <Button style={{ fontSize: '12px', padding: '3px 8px' }}>
               <LinkedinLogo size={15} color="#a1a7bb" /> Linkedin
             </Button>
@@ -105,19 +107,19 @@ export const Stats = () => {
           <Star size={12} weight="fill" />
         </div>
       </div>
-      <SubTitle>Mayank to other designers converter</SubTitle>
+      <SubTitle>Aleksei to other developers converter</SubTitle>
       <Converter>
         <ConverterInner>
           <ConverterInnerSection>
-            <span>MAYANK</span>
+            <span>ALEKSEI</span>
             <input
               pattern="[0-9]+"
               placeholder="0"
-              value={mayanksCount}
+              value={alekseiCount}
               onChange={(e) => {
                 const proccessedValue = Number(e.target.value.replace(/[^0-9]/g, ''));
                 const limitedValue = proccessedValue < 1 ? 1 : proccessedValue;
-                setMayankCount(limitedValue.toString());
+                setAlekseiCount(limitedValue.toString());
                 setDesignersCount((limitedValue * 2).toString());
               }}
             />
@@ -131,8 +133,8 @@ export const Stats = () => {
               onChange={(e) => {
                 const proccessedValue = Number(e.target.value.replace(/[^0-9]/g, ''));
                 const limitedValue = proccessedValue < 1 ? 1 : proccessedValue;
-                const mayanksCount = Math.round(limitedValue / 2);
-                setMayankCount(mayanksCount < 1 ? '1' : mayanksCount.toString());
+                const alksCount = Math.round(limitedValue / 2);
+                setAlekseiCount(alksCount < 1 ? '1' : alksCount.toString());
                 setDesignersCount(limitedValue.toString());
               }}
             />
