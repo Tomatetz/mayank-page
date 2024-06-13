@@ -125,7 +125,7 @@ export const Stats = () => {
             />
           </ConverterInnerSection>
           <ConverterInnerSection>
-            <span>DESIGNER</span>
+            <span>DEVELOPER</span>
             <input
               pattern="[0-9]+"
               placeholder="0"
