@@ -49,12 +49,12 @@ export const HomePage = () => {
           <Chart />
         </ChartContainer>
         <Feedback />
-        <WorksContainer>
+        {/* <WorksContainer>
           <Works />
         </WorksContainer>
         <ArticlesContainer>
           <Articles />
-        </ArticlesContainer>
+        </ArticlesContainer> */}
         <ProjectsContainer>
           <Projects />
         </ProjectsContainer>

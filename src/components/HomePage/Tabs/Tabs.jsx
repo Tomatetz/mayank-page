@@ -39,8 +39,8 @@ export const Tabs = () => {
         sx={{ minHeight: 'unset', height: '40px' }}
       >
         <Tab label="Chart" sx={sx} value="chart" disableRipple />
-        <Tab label="Works" sx={sx} value="works" disableRipple />
-        <Tab label="Articles" sx={sx} value="articles" disableRipple />
+        {/* <Tab label="Works" sx={sx} value="works" disableRipple />
+        <Tab label="Articles" sx={sx} value="articles" disableRipple /> */}
         <Tab label="Projects" sx={sx} value="projects" disableRipple />
         {width < 1024 && <Tab label="Reviews" sx={sx} value="reviews" disableRipple />}
         <Tab label="About" sx={sx} value="about" disableRipple />
